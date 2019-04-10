@@ -54,14 +54,15 @@ Make sure your client is configured to [access data from a variable server locat
 }
 
 ```
-* ~Create a Heroku app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack):~
+* ~ Create a Heroku app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack): ~
   ```js
-   heroku create --buildpack https://github.com/mars/create-react-app-buildpack.git
+  heroku create --buildpack https://github.com/mars/create-react-app-buildpack.git
   ```
 
 # TODO NOTES:
-_no env vars on Zeit client. Must be done during build process_
-_refer them to:_ 
+*_from this point, it needs complete re-write_
+*_no env vars on Zeit client. Must be done during build process_
+*_refer them to:_ 
 https://courses.thinkful.com/ei-react-v1/checkpoint/19  
 _for specific details_
 
