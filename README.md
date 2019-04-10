@@ -20,16 +20,39 @@ Make sure your client is configured to [access data from a variable server locat
   ```
   * Double-check that your async actions still return your data.
   
-### Get your client to Heroku
+### Get your client to Zeit
 
-* Create a `static.json` file in root directory containing the following code:
+* Create a `now.json` file in root directory containing the following code:
 ```js
   {
-    "root": "build/",
-    "routes": {
-      "/**": "index.html"
+  "version": 2,
+  "alias": "my-new-react-app",
+  "name": "my-react-app",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "build" }
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/manifest.json", "dest": "/manifest.json" },
+    {
+      "src": "/service-worker.js",
+      "dest": "/service-worker.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+
 ```
 * Create a Heroku app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack):
   ```js
