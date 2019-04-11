@@ -1,11 +1,5 @@
 ## Deploy your server
 
-* Create the Heroku app: `heroku create PROJECT_NAME`.
-* connect your git repo to Heroku’s: `heroku git:remote -a PROJECT_NAME`
-* When server is finalized, push your code to Heroku: `git push heroku master`.
-
-## Deploy your client
-
 ### Do some server-side preparation
 
 Make sure your client is configured to [access data from a variable server location](https://courses.thinkful.com/react-001v3/assignment/1.2.1). Be sure to read and follow these instructions carefully!
@@ -22,8 +16,17 @@ Make sure your client is configured to [access data from a variable server locat
     PORT : process.env.PORT || 8080
   }
   ```
-  * Double-check that your async actions still return your data.
-  
+
+* Double-check that your async actions still return your data.
+
+* Create the Heroku app: `heroku create PROJECT_NAME`.
+* connect your git repo to Heroku’s: `heroku git:remote -a PROJECT_NAME`
+* When server is finalized, push your code to Heroku: `git push heroku master`.
+
+
+
+## Deploy your client
+
 ### Get your client to Zeit
 
 * Create a `now.json` file in the *public* directory of your client, containing the following code:
