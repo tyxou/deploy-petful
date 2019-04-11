@@ -29,34 +29,38 @@ Make sure your client is configured to [access data from a variable server locat
 * Create a `now.json` file in root directory containing the following code:
 
 ```js
-  {
-  "version": 2,
-  "alias": "my-new-react-app",
-  "name": "my-react-app",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/static-build",
-      "config": { "distDir": "build" }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    { "src": "/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "/manifest.json", "dest": "/manifest.json" },
-    {
-      "src": "/service-worker.js",
-      "dest": "/service-worker.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+ {
+ "version": 2,
+ "name": "petful",
+ "alias": "petful",
+ "routes": [
+   {
+     "src": "^/static/(.*)",
+     "dest": "/static/$1"
+   },
+   {
+     "src": "^/favicon.ico$",
+     "dest": "/favicon.ico"
+   },
+   {
+     "src": "^/manifest.json$",
+     "dest": "/manifest.json"
+   },
+   {
+     "src": "^/site.webmanifest.json$",
+     "dest": "/site.webmanifest.json"
+   },
+   {
+     "src": ".*",
+     "dest": "/index.html"
+   },
+   {
+     "src": "^/favicon.ico$",
+     "dest": "/favicon.ico"
+   }
+ ]
 }
+
 
 ```
 * ~ Create a Heroku app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack): ~
