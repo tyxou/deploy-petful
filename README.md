@@ -64,7 +64,7 @@ Make sure your client is configured to [access data from a variable server locat
 
 ```
 * Before we can deploy to Zeit, we need to build the client files. Make sure to have a *_.env_* file with any global variables needed, like the API url. These env vars must start with:
-`REACT_APP_`, or else, `react-scripts` will ignore them! For instance, in client’s .env file we might have:
+`REACT_APP_`, or else, `react-scripts` will ignore them! For instance, in client’s _.env_ file we might have:
 ```
 REACT_APP_API_BASE=https://SERVER-PROJECT-NAME.herokuapp.com/api
 ```
@@ -100,3 +100,21 @@ Substitute the “CLIENT_PROJECT_NAME” with the name used in the `name` & `ali
 
 For further details on client deployment go to this checkpoint:
 https://courses.thinkful.com/ei-react-v1/checkpoint/19  
+
+
+========================================================================
+
+
+REMOVED CONTENTS:
+
+Create a Zeit app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack):~
+  ```js
+  heroku create --buildpack https://github.com/mars/create-react-app-buildpack.git
+  ```
+
+* Set your API's base URL as an environment variable in Heroku: 
+  ```js
+  heroku config:set REACT_APP_API_BASE_URL=https://MY-SERVER-URL.herokuapp.com/api
+  ```
+
+* Push your code to Heroku: `git push heroku master`.
