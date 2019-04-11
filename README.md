@@ -2,7 +2,7 @@
 
 ### Do some server-side preparation
 
-Make sure your client is configured to [access data from a variable server location](https://courses.thinkful.com/react-001v3/assignment/1.2.1). Be sure to read and follow these instructions carefully!
+Make sure your client is configured to [access data from a variable server location](https://courses.thinkful.com/ei-react-v1/checkpoint/19). Be sure to read and follow these instructions carefully!
   * Make sure you've added the following to `server/index.js`:
   ```js
     app.use(cors({
