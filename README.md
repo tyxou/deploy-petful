@@ -1,7 +1,8 @@
 ## Deploy your server
 
 * Create the Heroku app: `heroku create PROJECT_NAME`.
-* Push your code to Heroku: `git push heroku master`.
+* connect your git repo to Heroku’s: `heroku git:remote -a PROJECT_NAME`
+* When server is finalized, push your code to Heroku: `git push heroku master`.
 
 ## Deploy your client
 
@@ -16,13 +17,17 @@ Make sure your client is configured to [access data from a variable server locat
   ```
   * In `server/src/config.js`, make sure you've exported the following:
   ```js
-  CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:3000'
+  module.exports = {
+    CLIENT_ORIGIN : process.env.CLIENT_ORIGIN || 'http://localhost:3000',
+    PORT : process.env.PORT || 8080
+  }
   ```
   * Double-check that your async actions still return your data.
   
 ### Get your client to Zeit
 
 * Create a `now.json` file in root directory containing the following code:
+
 ```js
   {
   "version": 2,
@@ -54,17 +59,17 @@ Make sure your client is configured to [access data from a variable server locat
 }
 
 ```
-* ~Create a Heroku app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack):~
+* ~ Create a Heroku app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack): ~
   ```js
   heroku create --buildpack https://github.com/mars/create-react-app-buildpack.git
   ```
 
 # TODO NOTES:
-* _from this point, it needs complete re-write_
-* _no env vars on Zeit client. Must be done during build process_
-* _refer them to:_ 
+*_from this point, it needs complete re-write_
+*_no env vars on Zeit client. Must be done during build process_
+*_also refer them to:_ 
 https://courses.thinkful.com/ei-react-v1/checkpoint/19  
-_for specific details_
+_for specific details & steps_
 
 * Set your API's base URL as an environment variable in Heroku: 
   ```js
