@@ -56,10 +56,6 @@ Make sure your client is configured to [access data from a variable server locat
    {
      "src": ".*",
      "dest": "/index.html"
-   },
-   {
-     "src": "^/favicon.ico$",
-     "dest": "/favicon.ico"
    }
  ]
 }
