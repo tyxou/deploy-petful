@@ -92,29 +92,12 @@ Substitute the “CLIENT_PROJECT_NAME” with the name used in the `name` & `ali
 ## Configure the server on Heroku to accept requests from the client
 
 * Add a `CLIENT_ORIGIN` environment variable to your Heroku app pointing to your deployed client:
-  ```js
+  ```
   heroku config:set CLIENT_ORIGIN=https://CLIENT_PROJECT_NAME.now.sh
   ```
   * Make sure there is _no_ trailing slash!
-  * Run `heroku restart` to ensure that the app runs with knowledge of the new client origin.
+  * you can add env vars in Heroku from your account’s dashboard as well.
+  * Run `heroku restart` (or: Restart All Dynos - from dashboard) to ensure that the app runs with knowledge of the new client origin.
 
 For further details on client deployment go to this checkpoint:
 https://courses.thinkful.com/ei-react-v1/checkpoint/19  
-
-
-========================================================================
-
-
-REMOVED CONTENTS:
-
-Create a Zeit app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack):~
-  ```js
-  heroku create --buildpack https://github.com/mars/create-react-app-buildpack.git
-  ```
-
-* Set your API's base URL as an environment variable in Heroku: 
-  ```js
-  heroku config:set REACT_APP_API_BASE_URL=https://MY-SERVER-URL.herokuapp.com/api
-  ```
-
-* Push your code to Heroku: `git push heroku master`.
