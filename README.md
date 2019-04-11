@@ -63,7 +63,7 @@ Make sure your client is configured to [access data from a variable server locat
 
 
 ```
-* ~ Create a Heroku app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack): ~
+* ~Create a Heroku app for your client, using the [Create React App buildpack](https://github.com/mars/create-react-app-buildpack):~
   ```js
   heroku create --buildpack https://github.com/mars/create-react-app-buildpack.git
   ```
